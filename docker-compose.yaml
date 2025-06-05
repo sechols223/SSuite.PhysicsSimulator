@@ -1,0 +1,12 @@
+﻿services:
+  physics-simulator:
+    image: ssuite-physics-simulator
+    build:
+      context: .
+      dockerfile: SSuite.PhysicsSimulator.UI/Vnc.Dockerfile
+    ports:
+      - "5900:5900"
+      - "8080:8080"
+    environment:
+      - DISPLAY=:1
+    restart: unless-stopped

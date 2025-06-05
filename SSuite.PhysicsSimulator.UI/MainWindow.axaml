@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="700"
+        x:Class="SSuite.PhysicsSimulator.UI.MainWindow"
+        Title="Physics Simulator">
+    
+    <Grid RowDefinitions="Auto,*">
+        <!-- Top Controls -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10" Spacing="10">
+            <Button x:Name="StartButton" Content="Start" Click="OnStartSimulation" />
+            <Button x:Name="PauseButton" Content="Pause" Click="OnPauseSimulation" IsEnabled="False" />
+            <Button x:Name="ResetButton" Content="Reset" Click="OnResetSimulation" />
+            <Separator Width="10" />
+            <TextBlock VerticalAlignment="Center" Text="Gravity:" />
+            <NumericUpDown x:Name="GravityY" Value="9.8" Minimum="0" Increment="0.1" Width="150" />
+            <Separator Width="10" />
+            <TextBlock VerticalAlignment="Center" Text="Air Resistance:" />
+            <Slider x:Name="AirResistanceSlider" Width="150" Minimum="0" Maximum="1" Value="0.01" />
+            <TextBlock x:Name="AirResistanceValue" Text="0.01" VerticalAlignment="Center" Width="40" />
+            <Separator Width="10" />
+            <Button x:Name="AddCircleButton" Content="Add Circle" Click="OnAddCircle" />
+            <Button x:Name="ClearObjectsButton" Content="Clear All" Click="OnClearObjects" />
+        </StackPanel>
+        
+        <!-- Simulation Canvas -->
+        <Border Grid.Row="1" Background="LightGray" BorderBrush="Gray" BorderThickness="1" Margin="10">
+            <Canvas x:Name="SimulationCanvas" Background="White" />
+        </Border>
+    </Grid>
+</Window>
