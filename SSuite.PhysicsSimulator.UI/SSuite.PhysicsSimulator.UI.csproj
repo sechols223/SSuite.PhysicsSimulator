@@ -1,14 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <OutputType>WinExe</OutputType>
-        <TargetFramework>net9.0</TargetFramework>
-        <Nullable>enable</Nullable>
-        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
-        <ApplicationManifest>app.manifest</ApplicationManifest>
-        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+      <PublishAot>true</PublishAot>
+      <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+      <TrimMode>link</TrimMode>
+      <OutputType>WinExe</OutputType>
+      <TargetFramework>net9.0</TargetFramework>
+      <Nullable>enable</Nullable>
+      <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+      <ApplicationManifest>app.manifest</ApplicationManifest>
+      <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     </PropertyGroup>
-
+  
+  <ItemGroup>
+      <!-- Preserve Avalonia types for reflection -->
+      <TrimmerRootAssembly Include="Avalonia.Themes.Fluent" />
+    </ItemGroup>
+  
     <ItemGroup>
       <PackageReference Include="Avalonia" />
       <PackageReference Include="Avalonia.Desktop" />
