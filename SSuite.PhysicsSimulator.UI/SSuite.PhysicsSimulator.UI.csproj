@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
+      <AssemblyName>SSuite Physics Simulator</AssemblyName>
       <PublishAot>true</PublishAot>
       <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
       <TrimMode>link</TrimMode>
