@@ -234,13 +234,11 @@ public partial class MainWindow : Window
 
             var rightPosition = circle.Position.X + circle.Radius.Value;
 
-            if (rightPosition < canvasWidth)
+            if (rightPosition >= canvasWidth)
             {
-                return;
+                circle.Position = circle.Position with { X = (float)canvasWidth - circle.Radius.Value };
+                circle.Velocity = circle.Velocity with { X = -circle.Velocity.X * 0.7f };
             }
-
-            circle.Position = circle.Position with { X = (float)canvasWidth - circle.Radius.Value };
-            circle.Velocity = circle.Velocity with { X = -circle.Velocity.X * 0.7f };
         }
     }
 
